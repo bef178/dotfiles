@@ -1,0 +1,45 @@
+source $HOME/.vimrc.vundle
+
+set nocompatible | set nobackup
+
+" enable scheme solarized
+if &t_Co == 256
+    " set solarized
+    let g:solarized_termcolors=256
+    set background=light
+    colorscheme solarized
+else
+    echo "D: not in 256 color"
+endif
+
+set noautoindent
+"set ambiwidth=double
+set backspace=indent,eol,start
+set fencs=utf8,gb2312,gbk,big5,gb18030,iso8859-1
+set ffs=unix,dos
+set formatoptions=tcqro " add space and asterisk on newline in comment
+"filetype indent on
+set hlsearch | set incsearch
+set list listchars=tab:>-,trail:=
+highlight SpecialKey ctermfg=1
+set nolinebreak
+set number | set showmatch
+set ruler | set scrolloff=4 | set showcmd | set laststatus=2
+set splitright
+set tabstop=8 | set noexpandtab
+set textwidth=80 | set fo="" | set cc=+0 | hi ColorColumn ctermbg=lightblue
+set winaltkeys=no
+
+if has("autocmd")
+autocmd BufReadPost * cd %:p:h " goto file's dirname before open it
+autocmd FileType c,cpp,java,html,css,javascript,xml,php,sh,python	set ts=4 | set sw=4 | set et | set fo=""
+autocmd FileType make	set ts=8 | set sw=8 | set noet
+autocmd FileType rfc	set ts=3 | set et | set tw=72 | set fo="tcq"
+autocmd BufWritePre *.html,*.css,*.js,*.php,*.xml,*.py,*.sh,*.c,*.cpp,*.h,*.java %s/\s\+$//e " trailing space
+endif
+
+" fctix.vim
+set ttimeoutlen=100
+
+inoremap    <F2>    <C-R>=strftime("%Y-%m-%d %H:%M:%S %z")<CR>
+imap    <C-s>   <Esc>:w<CR>a

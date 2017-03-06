@@ -1,0 +1,12 @@
+#!/bin/bash
+
+d=`pwd`/`dirname $0`
+
+if test ! -e $HOME/.vimrc; then
+    ln -s $d/vim/vimrc  $HOME/.vimrc
+    ln -s $d/vim/vimrc.vundle   $HOME/.vimrc.vundle
+fi
+
+if test ! -e $HOME/.gitconfig; then
+    ln -s $d/gitconfig  $HOME/.gitconfig
+fi
