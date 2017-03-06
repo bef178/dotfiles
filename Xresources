@@ -1,0 +1,8 @@
+*VT100.Translations: #override \
+<Key>BackSpace: string(0x7F)\n\
+<Key>Delete: string("\e[3~")\n\
+<Key>Home: string("\e[1~")\n\
+<Key>End: string("\e[4~")\n
+
+*ttyModes: erase ^?
+xterm.*backarrowKey:false
