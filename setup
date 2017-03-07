@@ -7,13 +7,15 @@ if test ! -e $HOME/.bashrc; then
 fi
 echo "source $d/bashrc" >> $HOME/.bashrc
 
+if test ! -e $HOME/.gitconfig; then
+    ln -s $d/git/gitconfig  $HOME/.gitconfig
+fi
+
 if test ! -e $HOME/.vimrc; then
     ln -s $d/vim/vimrc  $HOME/.vimrc
     ln -s $d/vim/vimrc.vundle   $HOME/.vimrc.vundle
-fi
-
-if test ! -e $HOME/.gitconfig; then
-    ln -s $d/gitconfig  $HOME/.gitconfig
+    mkdir $HOME/.vim
+    git clone https://github.com/VundleVim/Vendle.vim.git   $HOME/.vim/bundle/Vundle.vim
 fi
 
 if test ! -e $HOME/.tmux.conf; then

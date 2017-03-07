@@ -1,6 +1,7 @@
 source $HOME/.vimrc.vundle
 
 set nocompatible | set nobackup
+set viminfo= " turn off logging
 
 " enable scheme solarized
 if &t_Co == 256
@@ -10,6 +11,7 @@ if &t_Co == 256
     colorscheme solarized
 else
     echo "D: not in 256 color"
+    colorscheme blue
 endif
 
 set noautoindent
@@ -31,6 +33,7 @@ set textwidth=80 | set fo="" | set cc=+0 | hi ColorColumn ctermbg=lightblue
 set winaltkeys=no
 
 if has("autocmd")
+"set autochdir
 autocmd BufReadPost * cd %:p:h " goto file's dirname before open it
 autocmd FileType c,cpp,java,html,css,javascript,xml,php,sh,python	set ts=4 | set sw=4 | set et | set fo=""
 autocmd FileType make	set ts=8 | set sw=8 | set noet
