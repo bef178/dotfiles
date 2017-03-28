@@ -1,4 +1,4 @@
-source $HOME/.vimrc.vundle
+source $HOME/.vim/vundle.vim
 
 set nocompatible | set nobackup
 set viminfo= " turn off logging
@@ -6,12 +6,12 @@ set viminfo= " turn off logging
 " enable scheme solarized
 if &t_Co == 256
     " set solarized
-    let g:solarized_termcolors=256
-    set background=light
-    colorscheme solarized
+"    let g:solarized_termcolors=256
+"    set background=light
+"    colorscheme solarized
 else
-    echo "D: not in 256 color"
-    colorscheme blue
+"    echo "D: not in 256 color"
+"    colorscheme blue
 endif
 
 set noautoindent
@@ -21,7 +21,7 @@ set fencs=utf8,gb2312,gbk,big5,gb18030,iso8859-1
 set ffs=unix,dos
 set formatoptions=tcqro " add space and asterisk on newline in comment
 "filetype indent on
-set hlsearch | set incsearch
+set hlsearch incsearch
 set list listchars=tab:>-,trail:=
 highlight SpecialKey ctermfg=1
 set nolinebreak
@@ -35,14 +35,33 @@ set winaltkeys=no
 if has("autocmd")
 "set autochdir
 autocmd BufReadPost * cd %:p:h " goto file's dirname before open it
-autocmd FileType c,cpp,java,html,css,javascript,xml,php,sh,python	set ts=4 | set sw=4 | set et | set fo=""
-autocmd FileType make	set ts=8 | set sw=8 | set noet
-autocmd FileType rfc	set ts=3 | set et | set tw=72 | set fo="tcq"
+autocmd FileType c,cpp,java,html,css,javascript,xml,php,sh,python,vim   :set ts=4 sw=4 et fo=""
+autocmd FileType make   set ts=8 | set sw=8 | set noet
+autocmd FileType rfc    set ts=3 | set et | set tw=72 | set fo="tcq"
 autocmd BufWritePre *.html,*.css,*.js,*.php,*.xml,*.py,*.sh,*.c,*.cpp,*.h,*.java %s/\s\+$//e " trailing space
 endif
 
 " fctix.vim
 set ttimeoutlen=100
 
+inoremap    jk  <esc>
+
+" move around
+inoremap    <c-a>   <home>
+inoremap    <c-e>   <end>
+
+" edit
+inoremap    <c-d>   <esc>ddi
+nnoremap    <c-d>   dd
+inoremap    <c-u>   <esc>ld<home><esc>i
+inoremap    <c-k>   <esc>ld<end><esc>a
+
+" tab/window switch
+nnoremap    <m-1>   1gt
+nnoremap    <m-2>   2gt
+nnoremap    <m-3>   3gt
+nnoremap    <m-4>   4gt
+
+" misc
 inoremap    <F2>    <C-R>=strftime("%Y-%m-%d %H:%M:%S %z")<CR>
-imap    <C-s>   <Esc>:w<CR>a
+inoremap    <C-s>   <Esc>:w<CR>a

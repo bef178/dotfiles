@@ -13,8 +13,8 @@ fi
 
 if test ! -e $HOME/.vimrc; then
     ln -s $d/vim/vimrc  $HOME/.vimrc
-    ln -s $d/vim/vimrc.vundle   $HOME/.vimrc.vundle
-    mkdir $HOME/.vim
+    mkdir -p $HOME/.vim
+    ln -s $d/vim/vundle.vim $HOME/.vim/vundle.vim
     git clone https://github.com/VundleVim/Vendle.vim.git   $HOME/.vim/bundle/Vundle.vim
 fi
 
