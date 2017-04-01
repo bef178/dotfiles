@@ -62,4 +62,6 @@ nnoremap    <m-4>   4gt
 
 " misc
 inoremap    <F2>    <C-R>=strftime("%Y-%m-%d %H:%M:%S %z")<CR>
+inoremap    <c-u>   <c-\><c-o>d<home>
+inoremap    <c-k>   <c-\><c-o>d<end>
 inoremap    <C-s>   <Esc>:w<CR>a
