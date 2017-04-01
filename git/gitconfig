@@ -5,10 +5,10 @@
 	quotepath = false
 [alias]
 	br = branch
+	df = diff
 	unstage = reset HEAD
 	logtree = log --graph --date-order --pretty=format:\"%C(yellow)%h %C(red)%ai %C(magenta)%an <%ae>%C(reset)%d%n%C(cyan)%s%n\" -3
-	ls = "!f() { git status && echo && git logtree ${1}; }; f"
-	st = !$SHELL -c \"git status && echo && git logtree $1\"
+	st = "! if test -n \"$GIT_PREFIX\"; then cd $GIT_PREFIX; fi; git status; echo; git logtree ${1};"
 [color]
 	status = true
 	ui = true
