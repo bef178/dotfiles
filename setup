@@ -11,9 +11,10 @@ if test ! -e $HOME/.gitconfig; then
     ln -s $d/git/gitconfig  $HOME/.gitconfig
 fi
 
-if test ! -e $HOME/.vimrc; then
-    ln -s $d/vim/vimrc  $HOME/.vimrc
+if test ! -e $HOME/.vim; then
     mkdir -p $HOME/.vim
+    ln -s $d/vim/vimrc $HOME/.vim/vimrc
+    ln -s $HOME/.vim/vimrc $HOME/.vimrc
     ln -s $d/vim/vundle.vim $HOME/.vim/vundle.vim
     git clone https://github.com/VundleVim/Vendle.vim.git   $HOME/.vim/bundle/Vundle.vim
 fi

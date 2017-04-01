@@ -1,17 +1,15 @@
 source $HOME/.vim/vundle.vim
 
-set nocompatible | set nobackup
+set nocompatible nobackup
 set viminfo= " turn off logging
 
-" enable scheme solarized
-if &t_Co == 256
-    " set solarized
+if has("gui_running") || &t_Co == 256
 "    let g:solarized_termcolors=256
 "    set background=light
 "    colorscheme solarized
+    color eclipse-lite
 else
-"    echo "D: not in 256 color"
-"    colorscheme blue
+    color lamp
 endif
 
 set noautoindent
@@ -25,19 +23,19 @@ set hlsearch incsearch
 set list listchars=tab:>-,trail:=
 highlight SpecialKey ctermfg=1
 set nolinebreak
-set number | set showmatch
-set ruler | set scrolloff=4 | set showcmd | set laststatus=2
+set number showmatch
+set ruler scrolloff=4 showcmd laststatus=2
 set splitright
-set tabstop=8 | set noexpandtab
-set textwidth=80 | set fo="" | set cc=+0 | hi ColorColumn ctermbg=lightblue
+set tabstop=8 noexpandtab
+set textwidth=80 fo="" cc=+0 | hi ColorColumn ctermbg=lightblue
 set winaltkeys=no
 
 if has("autocmd")
 "set autochdir
 autocmd BufReadPost * cd %:p:h " goto file's dirname before open it
 autocmd FileType c,cpp,java,html,css,javascript,xml,php,sh,python,vim   :set ts=4 sw=4 et fo=""
-autocmd FileType make   set ts=8 | set sw=8 | set noet
-autocmd FileType rfc    set ts=3 | set et | set tw=72 | set fo="tcq"
+autocmd FileType make   :set ts=8 sw=8 noet
+autocmd FileType rfc    :set ts=3 et tw=72 fo="tcq"
 autocmd BufWritePre *.html,*.css,*.js,*.php,*.xml,*.py,*.sh,*.c,*.cpp,*.h,*.java %s/\s\+$//e " trailing space
 endif
 
