@@ -9,8 +9,7 @@ Plugin 'VundleVim/Vundle.vim'
 Bundle 'Solarized'
 Bundle 'The-NERD-tree'
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'Raimondi/delimitMate'
-Plugin 'mtfbwy/syntax-scheme'
+Plugin 'sjl/badwolf'
 
 call vundle#end()
 

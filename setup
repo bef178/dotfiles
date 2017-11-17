@@ -2,6 +2,10 @@
 
 d=`pwd`/`dirname $0`
 
+if test -d $d/setup.d; then
+    bash $d/setup.d/*.sh
+fi
+
 if test ! -e $HOME/.bashrc; then
     touch $HOME/.bashrc
 fi
@@ -17,6 +21,8 @@ if test ! -e $HOME/.vim; then
     ln -s $HOME/.vim/vimrc $HOME/.vimrc
     ln -s $d/vim/vundle.vim $HOME/.vim/vundle.vim
     git clone https://github.com/VundleVim/Vendle.vim.git   $HOME/.vim/bundle/Vundle.vim
+    mkdir -p $HOME/.vim/colors
+    cp $d/vim/colors/*.vim $HOME/.vim/colors
 fi
 
 if test ! -e $HOME/.tmux.conf; then

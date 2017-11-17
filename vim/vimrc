@@ -1,46 +1,55 @@
 source $HOME/.vim/vundle.vim
 
 set nocompatible nobackup
-set viminfo= " turn off logging
+
+set backspace=indent,eol,start
+set fencs=utf8,gb2312,gbk,big5,gb18030,iso8859-1 ffs=unix,dos
+set number ruler showmatch showcmd laststatus=2 scrolloff=4 hlsearch incsearch
+
+set splitright
 
 if has("gui_running") || &t_Co == 256
+    syntax on | color ron
 "    let g:solarized_termcolors=256
 "    set background=light
-"    colorscheme solarized
-    color eclipse-lite
+"    color solarized
 else
-    color lamp
 endif
 
+" disable logging
+set viminfo=
+
+
+
 set noautoindent
-"set ambiwidth=double
-set backspace=indent,eol,start
-set fencs=utf8,gb2312,gbk,big5,gb18030,iso8859-1
-set ffs=unix,dos
-set formatoptions=tcqro " add space and asterisk on newline in comment
-"filetype indent on
-set hlsearch incsearch
-set list listchars=tab:>-,trail:=
+
+" add space and asterisk on newline in comment
+set formatoptions=tcqro
+
 highlight SpecialKey ctermfg=1
-set nolinebreak
-set number showmatch
-set ruler scrolloff=4 showcmd laststatus=2
-set splitright
-set tabstop=8 noexpandtab
+set list listchars=tab:>-,trail:=
+
+set nolinebreak nobreakindent
+
 set textwidth=80 fo="" cc=+0 | hi ColorColumn ctermbg=lightblue
-set winaltkeys=no
+
+set tabstop=8 noexpandtab
+
+
 
 if has("autocmd")
 "set autochdir
 autocmd BufReadPost * cd %:p:h " goto file's dirname before open it
-autocmd FileType c,cpp,java,html,css,javascript,xml,php,sh,python,vim   :set ts=4 sw=4 et fo=""
+autocmd FileType c,cpp,java,html,css,javascript,xml,php,sh,python,vim,lua   :set ts=4 sw=4 et fo=""
 autocmd FileType make   :set ts=8 sw=8 noet
 autocmd FileType rfc    :set ts=3 et tw=72 fo="tcq"
-autocmd BufWritePre *.html,*.css,*.js,*.php,*.xml,*.py,*.sh,*.c,*.cpp,*.h,*.java %s/\s\+$//e " trailing space
+autocmd BufWritePre *.html,*.css,*.js,*.php,*.xml,*.py,*.sh,*.c,*.cpp,*.h,*.java,*.lua %s/\s\+$//e " trailing space
 endif
 
 " fctix.vim
 set ttimeoutlen=100
+
+set winaltkeys=no
 
 inoremap    jk  <esc>
 
@@ -64,4 +73,4 @@ nnoremap    <m-4>   4gt
 inoremap    <F2>    <C-R>=strftime("%Y-%m-%d %H:%M:%S %z")<CR>
 inoremap    <c-u>   <c-\><c-o>d<home>
 inoremap    <c-k>   <c-\><c-o>d<end>
-inoremap    <C-s>   <Esc>:w<CR>a
+inoremap    <c-s>   <Esc>:w<CR>a
