@@ -1,30 +1,12 @@
 #!/bin/bash
 
-d=`pwd`/`dirname $0`
-
-if test -d $d/setup.d; then
-    bash $d/setup.d/*.sh
-fi
+root=$(realpath $(pwd)/$(dirname $0))
 
 if test ! -e $HOME/.bashrc; then
     touch $HOME/.bashrc
 fi
-echo "source $d/bashrc" >> $HOME/.bashrc
+echo "source '$root/bashrc'" >> $HOME/.bashrc
 
-if test ! -e $HOME/.gitconfig; then
-    ln -s $d/git/gitconfig  $HOME/.gitconfig
-fi
-
-if test ! -e $HOME/.vim; then
-    mkdir -p $HOME/.vim
-    ln -s $d/vim/vimrc $HOME/.vim/vimrc
-    ln -s $HOME/.vim/vimrc $HOME/.vimrc
-    ln -s $d/vim/vundle.vim $HOME/.vim/vundle.vim
-    git clone https://github.com/VundleVim/Vendle.vim.git   $HOME/.vim/bundle/Vundle.vim
-    mkdir -p $HOME/.vim/colors
-    cp $d/vim/colors/*.vim $HOME/.vim/colors
-fi
-
-if test ! -e $HOME/.tmux.conf; then
-    ln -s $d/tmux.conf  $HOME/.tmux.conf
+if test -d $root/setup.d; then
+    bash $root/setup.d/*.sh $root
 fi

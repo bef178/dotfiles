@@ -53,7 +53,9 @@ alias vncs="x11vnc -dontdisconnect -noxfixes -shared -forever -rfbport 5900 -bg 
 synclient touchpadoff=1 2>/dev/null
 
 # disable auto-mount-open
-gsettings set "org.gnome.desktop.media-handling" "automount-open" "false"
+if test -e "`which gsettings`"; then
+    gsettings set "org.gnome.desktop.media-handling" "automount-open" "false"
+fi
 
 # disable fn lock for thinkpad
 # Linux 3.17 onwards supports it natively

@@ -4,9 +4,7 @@ set nocompatible nobackup
 
 set backspace=indent,eol,start
 set fencs=utf8,gb2312,gbk,big5,gb18030,iso8859-1 ffs=unix,dos
-set number ruler showmatch showcmd laststatus=2 scrolloff=4 hlsearch incsearch
-
-set splitright
+set number ruler showcmd laststatus=2 scrolloff=4 hlsearch incsearch splitright showmatch
 
 if has("gui_running") || &t_Co == 256
     syntax on | color ron
