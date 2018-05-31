@@ -38,9 +38,9 @@ alias cmd='gnome-terminal'
 alias chrome='google-chrome'
 
 # jdk
-#export JAVA_HOME=$HOME/app/jdk
-#export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-#export PATH=$JAVA_HOME/bin:$PATH
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$JAVA_HOME/bin:$PATH
 
 # android sdk
 export ANDROID_HOME=$HOME/app/android-sdk-linux

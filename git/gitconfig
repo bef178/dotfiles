@@ -7,6 +7,7 @@
 	br = branch
 	df = diff
 	unstage = reset HEAD
+	lg = log --graph --all --decorate
 	logtree = log --graph --date-order --pretty=format:\"%C(yellow)%h %C(red)%ai %C(magenta)%an <%ae>%C(reset)%d%n%C(cyan)%s%n\" -3
 	st = "! if test -n \"$GIT_PREFIX\"; then cd $GIT_PREFIX; fi; git status; echo; git logtree ${1};"
 [color]
