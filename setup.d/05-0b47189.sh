@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# disable fn lock for thinkpad
+# Linux 3.17 onwards supports it natively
+# https://github.com/lentinj/tp-compact-keyboard
+#tp-compact-keyboard --fn-lock-disable
+
 # disable middle mouse button pasting
 # 1. list your current mouse pointer X mappings using xmodmap -pp (look at the 2nd column)
 # 2. swap the button 2 with some unused one, typically the highest number

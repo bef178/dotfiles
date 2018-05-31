@@ -57,7 +57,3 @@ if test -e "`which gsettings`"; then
     gsettings set "org.gnome.desktop.media-handling" "automount-open" "false"
 fi
 
-# disable fn lock for thinkpad
-# Linux 3.17 onwards supports it natively
-# https://github.com/lentinj/tp-compact-keyboard
-#tp-compact-keyboard --fn-lock-disable
