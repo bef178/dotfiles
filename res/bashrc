@@ -4,21 +4,21 @@
 
 # set prompting; see PROMPTING in bash manual
 function bash_ps1() {
+    local readonly titlebar="\[\e]2;\u@\h:\w\a\]";
     local readonly prefix="\[\e[32;40;1m\]----------------------------------------\[\e[m\]\n";
     local readonly workingDir="\[\e[33;1m\]\w\[\e[0m\]";
-    local readonly currentTime="\[\e[37;1m\]\A\[\e[0m\]";
+    local readonly time="\[\e[37;1m\]\t\[\e[0m\]";
     local readonly prompt="\[\e[31;1m\]\$ \[\e[0m\]";
+    local readonly user="\[\e[36;40;1m\]\u\[\e[0m\]";
+    local readonly host="\[\e[32;40;1m\]\H\[\e[0m\]";
     case $TERM in
     linux)
-        local readonly username="\[\e[35;40;1m\]\u\[\e[0m\]";
-        local readonly hostname="\[\e[36;40;1m\]\H\[\e[0m\]";
-        #echo "$prefix$username@$hostname:$workingDir\n$prompt";
-        echo "$username@$hostname:$workingDir\n$prompt";
+        #echo "$prefix$user@$host:$workingDir\n$prompt";
+        echo "$user@$host:$workingDir\n$prompt";
     ;;
     xterm*)
-        local readonly titlebar="\[\e]2;\u@\h:\w\a\]";
         #echo "$prefix$titlebar$workingDir\n$prompt";
-        echo "(\!) $titlebar$currentTime $workingDir\n$prompt";
+        echo "$titlebar$time $user@$host:$workingDir\n$prompt";
     ;;
     esac
 }

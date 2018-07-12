@@ -1,7 +1,7 @@
 #!/bin/bash
 
-ROOT=$1
+TOP=$(realpath $(pwd)/$(dirname $0)/..)
 
 sudo apt-get install -y tmux
 
-ln -snf $ROOT/res/tmux.conf $HOME/.tmux.conf
+ln -snf $TOP/res/tmux.conf $HOME/.tmux.conf

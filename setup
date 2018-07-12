@@ -1,12 +1,9 @@
 #!/bin/bash
 
-ROOT=$(realpath $(pwd)/$(dirname $0))
-echo "root to $ROOT"
+TOP=$(realpath $(pwd)/$(dirname $0))
 
-if test -d $ROOT/setup.d; then
-    for i in $(ls $ROOT/setup.d/*.sh); do
-        bash $i $ROOT
+if test -d $TOP/setup.d; then
+    for i in $(ls $TOP/setup.d/*.sh); do
+        bash $i
     done
 fi
-
-unset -v ROOT
