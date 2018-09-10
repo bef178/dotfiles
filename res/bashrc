@@ -16,7 +16,7 @@ function bash_ps1() {
         #echo "$prefix$user@$host:$workingDir\n$prompt";
         echo "$user@$host:$workingDir\n$prompt";
     ;;
-    xterm*)
+    *-256color)
         #echo "$prefix$titlebar$workingDir\n$prompt";
         echo "$titlebar$time $user@$host:$workingDir\n$prompt";
     ;;
