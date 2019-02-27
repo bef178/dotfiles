@@ -5,7 +5,7 @@
 	quotepath = false
 [alias]
 	br = branch
-	df = diff
+	co = checkout
 	unstage = reset HEAD
 	lg = log --graph --all --decorate
 	logtree = log --graph --date-order --pretty=format:\"%C(yellow)%h %C(red)%ai %C(magenta)%an <%ae>%C(auto)%d%n%C(auto)%s%n\"

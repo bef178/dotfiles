@@ -39,7 +39,7 @@ autocmd BufReadPost * cd %:p:h " goto file's dirname before open it
 autocmd FileType c,cpp,java,html,css,javascript,xml,php,sh,python,vim,lua   :set ts=4 sw=4 et fo=""
 autocmd FileType make   :set ts=8 sw=8 noet
 autocmd FileType rfc    :set ts=3 et tw=72 fo="tcq"
-autocmd BufWritePre *.html,*.css,*.js,*.php,*.xml,*.py,*.sh,*.c,*.cpp,*.h,*.java,*.lua %s/\s\+$//e " trailing space
+autocmd BufWritePre *.html,*.css,*.js,*.php,*.xml,*.py,*.sh,*.c,*.cpp,*.h,*.java,*.lua,*.mk %s/\s\+$//e " trailing space
 endif
 
 " fctix.vim

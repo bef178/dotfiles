@@ -1,0 +1,28 @@
+# /etc/udev/rules.d/51-android.rules
+
+# adb protocol on passion (Nexus One)
+SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", ATTR{idProduct}=="4e12", MODE="0666", GROUP="plugdev"
+
+# nexus9
+SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", ATTR{idProduct}=="4ee7", MODE="0666", GROUP="plugdev"
+
+# coolpad 8675-fhd 1ebf:fffe
+SUBSYSTEM=="usb", ATTR{idVendor}=="1ebf", ATTR{idProduct}=="fffe", MODE="0666", GROUP="plugdev"
+
+# rm1g
+SUBSYSTEM=="usb", ATTR{idVendor}=="1f3a", ATTR{idProduct}=="1001", MODE="0666", GROUP="plugdev"
+
+# zuk z1
+SUBSYSTEM=="usb", ATTR{idVendor}=="2b4c", ATTR{idProduct}=="1005", MODE="0666", GROUP="plugdev"
+
+#
+SUBSYSTEM=="usb", ATTR{idVendor}=="1bbb", ATTR{idProduct}=="d00d", MODE="0666", GROUP="plugdev"
+
+# huawei
+SUBSYSTEM=="usb", ATTR{idVendor}=="12d1", ATTR{idProduct}=="107e", MODE="0666", GROUP="plugdev"
+
+# oneplus 5
+SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", ATTR{idProduct}=="4ee7", MODE="0666", GROUP="plugdev"
+
+# noain
+SUBSYSTEM=="usb", ATTR{idVendor}=="0bb4", ATTR{idProduct}=="0c03", MODE="0666", GROUP="plugdev"
