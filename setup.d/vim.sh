@@ -8,7 +8,7 @@ fi
 
 sudo apt-get install -y vim
 
-ln -snf $TOP/res/vim/vimrc $HOME/.vimrc
+ln -snf $TOP/res/vimrc $HOME/.vimrc
 
 mkdir -p $HOME/.vim
 ln -snf $TOP/res/vim/colors $HOME/.vim/colors
