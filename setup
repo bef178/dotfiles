@@ -1,9 +1,16 @@
 #!/bin/bash
 
-TOP=$(realpath $(pwd)/$(dirname $0))
+if [[ "$BASH_SOURCE" == /* ]]; then
+    TOP=$(realpath $(dirname $BASH_SOURCE))
+else
+    TOP=$(realpath $(pwd)/$(dirname $BASH_SOURCE))
+fi
 
 if test -d $TOP/setup.d; then
     for i in $(ls $TOP/setup.d/*.sh); do
-        bash $i
+        if test -r $i; then
+            . $i
+        fi
     done
+    unset i
 fi

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# c
+sudo apt-get install -y lib32ncurses5-dev lib32z1
+sudo apt-get install -y gcc libc6-i386 lib32gcc1
+
+# c++
+sudo apt-get install -y g++ lib32stdc++6
+
+# java
+sudo apt-get install -y openjdk-8-jdk openjdk-8-source
+
+# js
+sudo apt-get install -y nodejs npm
+sudo npm install -g requirejs underscore backbone
+
+# python
+sudo apt-get install -y python python-pip
