@@ -13,8 +13,8 @@ cat >> $HOME/.bashrc << EOF
 
 # jdk
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-export PATH=$PATH:$JAVA_HOME/bin
+export CLASSPATH=.:\$JAVA_HOME/lib/dt.jar:\$JAVA_HOME/lib/tools.jar
+export PATH=\$PATH:\$JAVA_HOME/bin
 EOF
 
 # js

@@ -8,7 +8,7 @@ mkdir -p $HOME/{app,bin}
 cat >> $HOME/.bashrc << EOF
 
 # home bin
-export PATH=$PATH:$HOME/bin
+export PATH=\$PATH:\$HOME/bin
 EOF
 
 mkdir -p $HOME/pub
