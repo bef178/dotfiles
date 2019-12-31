@@ -1,20 +1,22 @@
 #!/bin/bash
-# better be reentrant
 
 TOP=$(realpath $(pwd)/$(dirname $BASH_SOURCE)/..)
 
-# bashrc sourced by interactive & non-login bash
-echo "source \"$TOP/res/bashrc\"" >> $HOME/.bashrc
+rmdir --ignore-fail-on-non-empty $HOME/{Documents,Downloads,Movie,Music,Pictures}
 
-mkdir -p $HOME/app
+mkdir -p $HOME/{app,bin}
+cat >> $HOME/.bashrc << EOF
 
-mkdir -p $HOME/bin
-ln -snf /usr/bin/gnome-calculator $HOME/bin/calc
-ln -snf /usr/bin/gnome-terminal $HOME/bin/term
-ln -snf /usr/bin/google-chrome $HOME/bin/chrome
+# home bin
+export PATH=$PATH:$HOME/bin
+EOF
 
 mkdir -p $HOME/pub
-ln -snf $HOME/pub $HOME/Downloads
+if test ! -e $HOME/Downloads; then
+    ln -snf $HOME/pub $HOME/Downloads
+fi
 
 mkdir -p $HOME/.ssh
-ln -snf $TOP/res/ssh-config $HOME/.ssh/config
+if test ! -e $HOME/.ssh/config; then
+    ln -snf $TOP/res/ssh-config $HOME/.ssh/config
+fi

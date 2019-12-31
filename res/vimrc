@@ -17,8 +17,6 @@ if has("gui_running") || &t_Co == 256
 "    set background=light
 "    color solarized
 "    color eclipse-lite
-else
-    color silent
 endif
 
 hi SpecialKey ctermfg=1

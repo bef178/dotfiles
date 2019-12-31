@@ -3,6 +3,7 @@
 	autocrlf = false
 	editor = vim
 	quotepath = false
+	safecrlf = true
 [alias]
 	br = branch
 	co = checkout
