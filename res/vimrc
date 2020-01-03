@@ -47,6 +47,9 @@ set winaltkeys=no
 " fctix.vim
 set ttimeoutlen=100
 
+" disable bell
+set visualbell | set t_vb=
+
 """"""""""""""""""""""""""""""""""""""""
 " function
 
