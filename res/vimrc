@@ -12,7 +12,7 @@ set splitright
 
 if has("gui_running") || &t_Co == 256
     syntax on
-    color ron
+"    color ron
 "    let g:solarized_termcolors=256
 "    set background=light
 "    color solarized
