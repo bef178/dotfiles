@@ -4,7 +4,7 @@ TOP=$(realpath $(pwd)/$(dirname $BASH_SOURCE)/..)
 
 rmdir --ignore-fail-on-non-empty $HOME/{Documents,Downloads,Movie,Music,Pictures}
 
-mkdir -p $HOME/{app,bin}
+mkdir -p $HOME/bin
 cat >> $HOME/.bashrc << EOF
 
 # home bin
