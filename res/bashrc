@@ -5,12 +5,12 @@
 # set prompting; see PROMPTING in bash manual
 function bash_ps1() {
     local readonly titlebar="\[\e]2;\u@\h:\w\a\]";
-    local readonly prefix="\[\e[32;40;1m\]----------------------------------------\[\e[m\]\n";
-    local readonly workingDir="\[\e[33;1m\]\w\[\e[0m\]";
-    local readonly time="\[\e[37;1m\]\t\[\e[0m\]";
-    local readonly prompt="\[\e[31;1m\]\$\[\e[0m\] ";
-    local readonly user="\[\e[36;1m\]\u\[\e[0m\]";
-    local readonly host="\[\e[32;1m\]\H\[\e[0m\]";
+    local readonly prefix="\[\e[32;40m\]----------------------------------------\[\e[m\]\n";
+    local readonly workingDir="\[\e[33m\]\w\[\e[0m\]";
+    local readonly time="\[\e[37m\]\t\[\e[0m\]";
+    local readonly prompt="\[\e[31m\]\$\[\e[0m\] ";
+    local readonly user="\[\e[36m\]\u\[\e[0m\]";
+    local readonly host="\[\e[32m\]\H\[\e[0m\]";
     case $TERM in
     linux)
         #echo "$prefix$user@$host:$workingDir\n$prompt";
