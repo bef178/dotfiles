@@ -1,22 +1,51 @@
 #!/bin/bash
 
-TOP=$(realpath $(pwd)/$(dirname $BASH_SOURCE)/..)
+if [[ "$BASH_SOURCE" == /* ]]; then
+    TOP=$(realpath $(dirname $BASH_SOURCE)/..)
+else
+    TOP=$(realpath $(pwd)/$(dirname $BASH_SOURCE)/..)
+fi
 
-rmdir --ignore-fail-on-non-empty $HOME/{Documents,Downloads,Movie,Music,Pictures}
+if [[ `uname -a` == *Microsoft* ]]; then
+    export WIN_USER=`cmd.exe /C "echo %USERNAME%" | tr -d '\r'`
+fi
+
+################
+# directory
+#
+
+if test -n "$WIN_USER"; then
+    umask 022
+fi
+
+if test -n "$WIN_USER"; then
+    ln -snf "/mnt/c/Users/${WIN_USER}/Downloads" $HOME/Downloads
+else
+    rmdir --ignore-fail-on-non-empty $HOME/{Documents,Movie,Music,Pictures}
+fi
 
 mkdir -p $HOME/bin
-cat >> $HOME/.bashrc << EOF
-
-# home bin
-export PATH=\$PATH:\$HOME/bin
-EOF
 
 mkdir -p $HOME/pub
-if test ! -e $HOME/Downloads; then
-    ln -snf $HOME/pub $HOME/Downloads
-fi
 
 mkdir -p $HOME/.ssh
 if test ! -e $HOME/.ssh/config; then
     ln -snf $TOP/res/ssh-config $HOME/.ssh/config
 fi
+
+################
+# dotfiles
+#
+
+# bashrc sourced by interactive & non-login bash
+# TODO be reentrant
+echo >> $HOME/.bashrc
+cat >> $HOME/.bashrc << EOF
+source $TOP/res/bashrc
+source $TOP/res/promise-ssh-agent.sh
+source $TOP/res/term-solarized.sh
+EOF
+
+cat >> $HOME/.bashrc << EOF
+export PATH=\$PATH:\$HOME/bin
+EOF
