@@ -4,6 +4,7 @@
 	editor = vim
 	quotepath = false
 	safecrlf = true
+	pager = cat
 [alias]
 	br = branch
 	co = checkout
