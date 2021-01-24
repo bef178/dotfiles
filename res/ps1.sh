@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# .bashrc sourced by interactive & non-login bash
-
 # set prompting; see PROMPTING in bash manual
 function bash_ps1() {
     local readonly titlebar="\[\e]2;\u@\h:\w\a\]";
@@ -22,25 +20,26 @@ function bash_ps1() {
     ;;
     esac
 }
-PS1=`bash_ps1`
 
-# general aliases
-alias ..='\cd ..'
-alias grep='\grep --color=auto'
-alias l='ls'
-alias ls='\ls --classify --color=auto --group-directories-first --human-readable --show-control-chars'
-alias ll='ls -a -h -l'
-alias mv='mv -i'
-alias df='df -hPT'
-alias du='du -hs'
-alias dstat='dstat -cdlmnpsy'
-alias cmd='gnome-terminal'
-alias chrome='google-chrome'
+# would go with solarized for grays
+function bash_ps1_style2() {
+    local readonly time="\[\e[37m\]\t\[\e[0m\]";
+    local readonly host="\[\e[1;32m\]\H\[\e[0m\]";
+    local readonly pwd="\[\e[1;34m\]\w\[\e[0m\]";
+    local readonly user="\[\e[1;36m\]\u\[\e[0m\]";
+    local readonly prompt="\[\e[37m\]\$\[\e[0m\]";
+    case $TERM in
+    linux)
+        echo "$user@$host:$pwd\n$prompt ";
+    ;;
+    *-256color)
+        local readonly title="\[\e]2;\u@\h:\w\a\]";
+        echo "$title$time $host:$pwd\n$user$prompt ";
+    ;;
+    esac
+}
 
-# disable touchpad
-synclient touchpadoff=1 2>/dev/null
+PS1=`bash_ps1_style2`
 
-# disable auto-mount-open
-if test -e "`which gsettings`"; then
-    gsettings set "org.gnome.desktop.media-handling" "automount-open" "false"
-fi
+unset -f bash_ps1
+unset -f bash_ps1_style2

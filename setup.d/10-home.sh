@@ -21,7 +21,7 @@ fi
 if test -n "$WIN_USER"; then
     ln -snf "/mnt/c/Users/${WIN_USER}/Downloads" $HOME/Downloads
 else
-    rmdir --ignore-fail-on-non-empty $HOME/{Documents,Movie,Music,Pictures}
+    rmdir --ignore-fail-on-non-empty $HOME/{Documents,Movie,Music,Pictures,Public,Templates,Videos}
 fi
 
 mkdir -p $HOME/bin
@@ -41,11 +41,12 @@ fi
 # TODO be reentrant
 echo >> $HOME/.bashrc
 cat >> $HOME/.bashrc << EOF
-source $TOP/res/bashrc
+source $TOP/res/ps1.sh
+source $TOP/res/bashrc.sh
 source $TOP/res/promise-ssh-agent.sh
 source $TOP/res/term-solarized.sh
 EOF
 
 cat >> $HOME/.bashrc << EOF
-export PATH=\$PATH:\$HOME/bin
+export PATH=\$HOME/bin:\$PATH
 EOF
