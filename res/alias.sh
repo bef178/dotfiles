@@ -14,11 +14,3 @@ alias du='du -hs'
 alias dstat='dstat -cdlmnpsy'
 alias cmd='gnome-terminal'
 alias chrome='google-chrome'
-
-# disable touchpad
-synclient touchpadoff=1 2>/dev/null
-
-# disable auto-mount-open
-if test -e "`which gsettings`"; then
-    gsettings set "org.gnome.desktop.media-handling" "automount-open" "false"
-fi

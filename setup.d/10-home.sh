@@ -7,6 +7,7 @@ else
 fi
 
 if [[ `uname -a` == *Microsoft* ]]; then
+    # wsl
     export WIN_USER=`cmd.exe /C "echo %USERNAME%" | tr -d '\r'`
 fi
 
@@ -18,35 +19,33 @@ if test -n "$WIN_USER"; then
     umask 022
 fi
 
+rmdir --ignore-fail-on-non-empty $HOME/{Documents,Movie,Music,Pictures,Public,Templates,Videos}
 if test -n "$WIN_USER"; then
+    # link Downloads to windows' Downloads folder
+    rmdir --ignore-fail-on-non-empty $HOME/Downloads
     ln -snf "/mnt/c/Users/${WIN_USER}/Downloads" $HOME/Downloads
-else
-    rmdir --ignore-fail-on-non-empty $HOME/{Documents,Movie,Music,Pictures,Public,Templates,Videos}
+fi
+if test ! -e $HOME/pub; then
+    ln -snf $HOME/Downloads $HOME/pub
 fi
 
 mkdir -p $HOME/bin
-
-mkdir -p $HOME/pub
-
-mkdir -p $HOME/.ssh
-if test ! -e $HOME/.ssh/config; then
-    ln -snf $TOP/res/ssh-config $HOME/.ssh/config
-fi
 
 ################
 # dotfiles
 #
 
-# bashrc sourced by interactive & non-login bash
+# .bashrc sourced by interactive & non-login bash
 # TODO be reentrant
 echo >> $HOME/.bashrc
 cat >> $HOME/.bashrc << EOF
+source $TOP/res/alias.sh
+source $TOP/res/term-palette-solarized.sh
 source $TOP/res/ps1.sh
-source $TOP/res/bashrc.sh
-source $TOP/res/promise-ssh-agent.sh
-source $TOP/res/term-solarized.sh
+source $TOP/res/gui-settings.sh
 EOF
 
 cat >> $HOME/.bashrc << EOF
+
 export PATH=\$HOME/bin:\$PATH
 EOF

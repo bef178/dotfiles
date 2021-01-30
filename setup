@@ -7,7 +7,7 @@ else
 fi
 
 if test -d $TOP/setup.d; then
-    for i in $(ls $TOP/setup.d/*.sh); do
+    for i in $(ls $TOP/setup.d/*.sh | grep ".*/[0-9]\{2\}-"); do
         if test -r $i; then
             . $i
         fi

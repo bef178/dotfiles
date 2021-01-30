@@ -26,11 +26,11 @@ auto wlp3s0
 iface wlp3s0 inet dhcp
 wpa-conf /etc/wpa.conf
 EOF
-    wpa_passphrase "xxx" "freeforall" >> /etc/wpa.conf
+    wpa_passphrase "ssid" "ssid-passphrase" >> /etc/wpa.conf
     ifup wlp3s0
 fi
 
 # with systemd & gnome3, enter text mode by default
 if false; then
-    sudo systemctl set-default multi-user.target
+    systemctl set-default multi-user.target
 fi
