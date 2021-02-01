@@ -49,3 +49,9 @@ cat >> $HOME/.bashrc << EOF
 
 export PATH=\$HOME/bin:\$PATH
 EOF
+
+cat >> $HOME/.inputrc << EOF
+
+# do not bell on tab-completion
+set bell-style none
+EOF
