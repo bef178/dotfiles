@@ -2,7 +2,7 @@
 
 # .bashrc sourced by interactive and non-login bash
 
-alias ls='\ls --classify=always --color=auto --group-directories-first --human-readable --show-control-chars'
+alias ls='\ls --classify --color=auto --group-directories-first --human-readable --show-control-chars'
 alias ll='ls -a -l'
 alias mv='mv -i'
 alias df='df -hPT'
