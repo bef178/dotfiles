@@ -1,4 +1,4 @@
-#!/bin/bash
+# source me
 
 # set prompting; see PROMPTING in bash manual
 function bash_ps1() {
@@ -39,7 +39,35 @@ function bash_ps1_style2() {
     esac
 }
 
-PS1=`bash_ps1_style2`
+function zsh_ps1_style2() {
+    autoload -U colors && colors
+    local time="%{$fg[white]%}%T%{$reset_color%}";
+    local host="%{$fg[green]%}%m%{$reset_color%}";
+    local wdir="%{$fg[blue]%}%~%{$reset_color%}";
+    local user="%{$fg[cyan]%}%n%{$reset_color%}";
+    local prompt="%{$fg[white]%}%#%{$reset_color%}";
+    case $TERM in
+    linux)
+        echo "$user@$host:$wdir\n$prompt ";
+    ;;
+    *-256color)
+        echo "$user@$host:$wdir\n$prompt ";
+    ;;
+    esac
+}
+
+case $SHELL in
+    *bash)
+    PS1=`bash_ps1_style2`
+    ;;
+    *zsh)
+    PS1=`zsh_ps1_style2`
+    ;;
+    *)
+    echo "E: which shell is it? [$SHELL]"
+    ;;
+esac
 
 unset -f bash_ps1
 unset -f bash_ps1_style2
+unset -f zsh_ps1_style2

@@ -6,16 +6,13 @@ else
     TOP=$(realpath $(pwd)/$(dirname $BASH_SOURCE))
 fi
 
-if test -d $TOP/setup.d; then
-    prefix=""
-    if [[ $OSTYPE == 'darwin'* ]]; then
-        prefix="mac."
-    fi
-    for i in $(ls $TOP/setup.d/*.sh | grep ".*/$prefix[0-9]\{2\}-"); do
+if [[ $OSTYPE == 'darwin'* ]]; then
+    source $TOP/setup.d/mac.setup.sh
+elif test -d $TOP/setup.d; then
+    for i in $(ls $TOP/setup.d/*.sh | grep ".*/[0-9]\{2\}-"); do
         if test -r $i; then
             . $i
         fi
     done
     unset i
-    unset prefix
 fi
