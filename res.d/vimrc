@@ -56,10 +56,11 @@ set visualbell | set t_vb=
 if has("autocmd")
 "set autochdir
 autocmd BufReadPost * cd %:p:h " goto file's dirname before open it
-autocmd FileType c,cpp,java,html,css,javascript,xml,php,sh,python,vim,lua,cs    :set ts=4 sw=4 et fo=""
-autocmd FileType make   :set ts=8 sw=8 noet
-autocmd FileType rfc    :set ts=3 et tw=72 fo="tcq"
-autocmd BufWritePre *.html,*.css,*.js,*.php,*.xml,*.py,*.sh,*.c,*.cpp,*.h,*.java,*.lua,*.mk %s/\s\+$//e " remove trailing space
+autocmd FileType c,cpp,java,css,javascript,php,sh,python,vim,lua,cs :set ts=4 sw=4 et fo=""
+autocmd FileType html,xml,json :set ts=2 sw=2 et fo=""
+autocmd FileType make :set ts=8 sw=8 noet
+autocmd FileType rfc :set ts=3 et tw=72 fo="tcq"
+autocmd BufWritePre *.html,*.css,*.js,*.json,*.php,*.xml,*.py,*.sh,*.c,*.cpp,*.h,*.java,*.lua,*.mk %s/\s\+$//e " remove trailing space
 endif
 
 inoremap    jk  <esc>
