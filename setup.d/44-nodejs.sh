@@ -8,5 +8,5 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 #nvm install --lts
-nvm install lts/fermium # v14.19.0
+nvm install lts/gallium # v16.14.0
 npm install --global yarn
