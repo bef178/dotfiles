@@ -15,6 +15,12 @@ brew install \
 brew install \
     bash-completion docker-completion pip-completion yarn-completion
 
+brew install \
+    wget curl axel \
+    p7zip zip rar unrar \
+    ascii testdisk tree \
+    astyle
+
 brew install vim
 ln -snf $TOP/res.d/vimrc $HOME/.vimrc
 mkdir -p $HOME/.vim
