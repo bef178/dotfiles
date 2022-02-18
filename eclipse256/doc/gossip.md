@@ -1,7 +1,6 @@
 # background
 
-Suffering from undistinguishable and low-contrast texts, at last I decide to
-make my own.
+Suffering from undistinguishable and low-contrast texts, at last I decide to make my own.
 
 Then I see things in term.
 
@@ -30,21 +29,3 @@ not good in 8-bit term, so there comes lamp.vim. Both of them are in light
 background.
 
 I believe the code is pretty good.
-
-## eclipse256
-
-elcipse256 is a vim scheme appears to eclipse, mainly for java.<br/>
-Work on GUI and/or 256-color term. Not work on vim 5.80 or below.
-
-It may look a little different in 256-color term, since all colors are
-aligned/degraded to indexed ones.
-
-## lamp
-
-lamp uses very basic/limited colors, so it is (expected) for every term.
-
-# installation
-```
-$ mkdir -p $HOME/.vim/colors
-# link or copy *.vim to $HOME/.vim/colors/
-```

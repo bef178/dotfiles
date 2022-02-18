@@ -24,7 +24,7 @@ hi clear
 set background=light
 syntax on
 syntax reset
-let g:colors_name = "eclipse-lite"
+let g:colors_name = "eclipse256"
 
 let s:skip = "skip"
 let s:none = "none"
