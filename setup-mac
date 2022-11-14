@@ -6,4 +6,7 @@ else
     TOP=$(realpath $(pwd)/$(dirname $BASH_SOURCE)/..)
 fi
 
-ln -s $TOP/res.d/Xmodmap ~/.Xmodmap
+
+if [[ $OSTYPE == 'darwin'* ]]; then
+    source $TOP/setup-mac.d/10-setup.sh
+fi
