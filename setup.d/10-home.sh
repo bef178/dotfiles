@@ -16,8 +16,8 @@ mkdir -p $HOME/bin
 # .bashrc sourced by interactive & non-login bash TODO be reentrant
 echo >> $HOME/.bashrc
 cat >> $HOME/.bashrc << EOF
-. $TOP/res.d/alias.sh
-. $TOP/res.d/ps1.sh
+. $TOP/setup.d/bash/alias.sh
+. $TOP/setup.d/bash/ps1.sh
 EOF
 
 
