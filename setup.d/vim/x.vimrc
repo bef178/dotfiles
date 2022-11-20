@@ -88,5 +88,8 @@ nnoremap    <m-4>   4gt
 " misc
 inoremap    <F2>    <C-R>=strftime("%Y-%m-%d %H:%M:%S %z")<CR>
 
+" <F4> but not save
+nnoremap    <F4>    :set fenc=utf8 <Bar> set ff=unix<CR>
+
 " <F5> to trim trailing whitespaces
 nnoremap    <F5>    :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
