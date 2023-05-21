@@ -22,7 +22,8 @@ endif
 hi SpecialKey ctermfg=1
 set list listchars=tab:>-,trail:=
 
-"set ambiwidth=double
+" 省略号宽1em
+set ambiwidth=double
 
 """"""""""""""""""""""""""""""""""""""""
 " behavior
@@ -56,7 +57,8 @@ set visualbell | set t_vb=
 if has("autocmd")
 "set autochdir
 autocmd BufReadPost * cd %:p:h " goto file's dirname before open it
-autocmd FileType c,cpp,java,html,css,javascript,json,php,sh,python,vim,lua,cs,sql,xml :set ts=4 sw=4 et fo=""
+autocmd FileType c,cpp,java,javascript,php,sh,python,vim,lua,cs,sql :set ts=4 sw=4 et fo=""
+autocmd FileType html,css,json,xml,yaml :set ts=4 sw=4 et fo=""
 autocmd FileType make :set ts=8 sw=8 noet
 autocmd FileType rfc :set ts=3 et tw=72 fo="tcq"
 autocmd BufWritePre *.html,*.css,*.js,*.json,*.php,*.xml,*.py,*.sh,*.c,*.cpp,*.h,*.java,*.lua,*.mk %s/\s\+$//e " remove trailing space
