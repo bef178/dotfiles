@@ -1,28 +1,42 @@
-# Keyboard shortcut
+# Shortcut
 
 Define my preference.
 
-| category | command | key | remarks |
+| category | command | keyboard | remarks |
 | :-- | :-- | :-- | :-- |
-| app/edit | Show edit assist | Ctrl+P | vscode: Trigger Suggest
-| app/edit | Toggle line comment | Ctrl+/
-| app/edit | Delete line | Ctrl+D
-| app/edit | Delete to end of line | Ctrl+K | vscode: Delete All Right
-| app/edit | Delete to start of line | Ctrl+U | vscode: Delete All Left
-| app/edit | Move line up | Alt+Up
-| app/edit | Move line down | Alt+Down
-| app/edit/auto-content | Format lines | Alt+Shift+F | format selected line(s)
-| app/edit/auto-content | Organize imports | Alt+Shift+O | sort existing, remove unused, add missing imports
-| app/search | Find | Ctrl+F
-| app/search | Find in files | Ctrl+Shift+F
-| app/run/debug | Debug: Pause | F5
-| app/run/debug | Debug: Resume | F5
-| app/run/debug | Debug: Step over | F6
-| app/run/debug | Debug: Step into | F7
-| app/run/debug | Debug: Step out | F8
-| app | Show command panel | Ctrl+Shift+P | vscode: Ctrl+Shift+O "@" Symbols<br/>vscode: Ctrl+Shift+P ">" Commands<br/>
+| os | show launchpad | Super+F1
+| os | Run command... | Super+F2
+| os | show windows of all applications | Super+UpArrow
+| os | show windows of current application | Super+DownArrow
+| os | switch to left desktop | Super+LeftArrow
+| os | switch to right desktop | Super+RightArrow
+| os | Switch among windows | Super+Tab
+| os | 英/中 | Capslock
+| os | Lock screen | Super+L | from windows
+| os | Copy | Super+C | copy to clipboard
+| os | Paste | Super+V | paste from clipboard
+| os | Cut | Super+X | cut to clipboard
+
+| category | command | keyboard | remarks |
+| :-- | :-- | :-- | :-- |
+| app | Show command panel | Ctrl+Shift+P
 | app | Open file... | Ctrl+O
 | app | Go to line... | Ctrl+G
+| app/edit | find in current file | Ctrl+F
+| app/edit | find in all files | Ctrl+Shift+F
+| app/edit | Show edit assist | Ctrl+P | vscode: Trigger Suggest
+| app/edit | Comment/Uncomment line | Ctrl+/
+| app/edit | Remove line | Ctrl+D
+| app/edit | Remove to line end| Ctrl+K | vscode: Delete All Right
+| app/edit | Delete to line start | Ctrl+U | vscode: Delete All Left
+| app/edit | Move line up | Alt+Up
+| app/edit | Move line down | Alt+Down
+| app/refactor | Format lines | Alt+Shift+F | formatLines(selectedLines ?? allLines)
+| app/refactor | Organize imports | Alt+Shift+O | expand, remove unused, add missing, sort imports
+| app/debug | Debug: pause/resume | F5
+| app/debug | Debug: step over | F6
+| app/debug | Debug: step into | F7
+| app/debug | Debug: step out | F8
 | app/tab-control | open-new-tab | Ctrl+T | chrome, mac-terminal
 | app/tab-control | close-this-tab | Ctrl+W | chrome, mac-terminal
 | app/tab-control | reopen-last-tab | Ctrl+Shift+T | from chrome
@@ -31,13 +45,6 @@ Define my preference.
 | app/tab-control | Switch to 2nd tab | Alt+2
 | app/tab-control | Switch to 3rd tab | Alt+3
 | app/tab-control | Switch to 4th tab | Alt+4
-| os | Run command... | F1 | override the help
-| os | Switch input methods | Capslock
-| os | Lock screen | Super+L | from windows
-| os | Switch windows | Super+Tab
-| os | Copy | Super+C | clipboardCopy
-| os | Paste | Super+V | clipboardPaste
-| os | Cut | Super+X | clipboardCut
 
 ## Reference
 
