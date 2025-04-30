@@ -1,4 +1,4 @@
-# Shortcut
+# Keyboard Shortcut
 
 Define my preference.
 

@@ -1,20 +1,33 @@
 # Start with MacOS
 
-Mac uses zsh as default login shell.
+#### change default login shell to bash
 
-Before installing brew, make sure shell can access global sites like google, facebook, twitter, etc. Environment variable `http_proxy`/`https_proxy` might help, or try `proxychains`.
+``` sh
+# zsh is the default login shell
+chsh -s /bin/bash
+```
 
-- Install [`homebrew`](https://brew.sh/)
+#### configure `Terminal`: use `option` as `meta`
+
+#### install [`homebrew`](https://brew.sh/)
+
+Make sure it is OK to access [google](https://google.com/) before starting. Environment variables `http_proxy`/`https_proxy` might help, or try `proxychains`.
+
 ``` bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-- Call `mac.setup.sh` for terminal apps
-```
-bash ~/workshop/dotfiles/setup.d/mac.setup.sh
+#### install gnu toolchain
+
+``` bash
+brew install coreutils
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 ```
 
-- Install GUI apps
+#### check `setup-mac.d/` for terminal apps
+
+#### install GUI apps
+
   - [Scroll reverser](https://pilotmoon.com/scrollreverser/)
   - DisplayLink
   - Google chrome
@@ -22,4 +35,4 @@ bash ~/workshop/dotfiles/setup.d/mac.setup.sh
   - IntelliJ IDEA
   - 1Password
 
-- Setup keyboard shortcut, see [shortcut.md](./shortcut.md)
+#### setup [keyboard shortcut](./keyboard%20shortcut.md)
