@@ -35,4 +35,4 @@ export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
   - IntelliJ IDEA
   - 1Password
 
-#### setup [keyboard shortcut](./keyboard%20shortcut.md)
+#### [setup vscode](./vscode.md)
