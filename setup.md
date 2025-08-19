@@ -50,6 +50,55 @@ sudo apt-get install -y git
 ln -snf $TOP/setup.d/x.gitconfig $HOME/.gitconfig
 ```
 
+```bash
+# for wsl
+if [[ `uname -a` == *Microsoft* ]]; then
+    umask 022
+    export WIN_USER=`cmd.exe /C "echo %USERNAME%" | tr -d '\r'`
+    export WIN_HOME=/mnt/c/Users/$WIN_USER
+    rmdir --ignore-fail-on-non-empty $HOME/Downloads
+    ln -snf "${WIN_HOME}/Downloads" $HOME/Downloads
+fi
+```
+
+```bash
+# for mac
+if [[ `uname -a` == *Darwin* ]]; then
+    brew install \
+        coreutils gnu-tar gnu-sed \
+        findutils grep \
+        gawk gnutls gnu-indent gnu-getopt
+
+    brew install \
+        bash-completion docker-completion pip-completion
+
+    brew install \
+        wget curl axel \
+        p7zip zip rar unrar \
+        ascii tree
+
+    brew install vim
+    ln -snf $TOP/setup.d/x.vimrc $HOME/.vimrc
+
+    brew install tmux
+    ln -snf $TOP/setup.d/x.tmux.conf $HOME/.tmux.conf
+
+    brew install git
+    ln -snf $TOP/setup.d/x.gitconfig $HOME/.gitconfig
+
+    brew install openssh
+    mkdir -p $HOME/.ssh
+    ln -snf $TOP/setup.d/x.ssh_config $HOME/.ssh/config
+
+    cat >> $HOME/.bashrc << EOF
+
+export PATH=$PATH:$HOME/bin
+export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH
+export PATH=/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH
+EOF
+fi
+```
+
 ## 输入法fcitx
 
 从软件管理器中安装`fcitx`，并添加`fcitx-table-wbpy` `fcitx-googlepinyin`。
