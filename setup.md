@@ -101,30 +101,29 @@ fi
 
 ## 输入法fcitx
 
-从软件管理器中安装`fcitx`，并添加`fcitx-table-wbpy` `fcitx-googlepinyin`。
-
-将输入法唤醒快捷键设为`Ctrl_R`。
-
-将`CapsLock`映射为`Ctrl_R`。
-
-- edit `/usr/share/X11/xkb/symbols/pc`
-  - `key <CAPS> { [ Control_R, Caps_Lock ] };`
-- reboot
+1. 安装fcitx
+    ```bash
+    sudo apt-get install -y \
+        fcitx fcitx-table-wbpy
+    ```
+1. 将系统输入法设为fcitx
+    ```
+    im-config
+    ```
+1. 在fcitx内添加五笔拼音
+1. 将fcitx唤醒快捷键设为`Ctrl_R`
+1. 将`CapsLock`映射为`Ctrl_R`
+    ```bash
+    vim /usr/share/X11/xkb/symbols/pc
+    #    key <CAPS> { [ Control_R, Caps_Lock ] };
+    reboot
+    ```
 
 ## Chrome
 
-应从软件管理器安装。
+https://www.google.com/chrome/
 
-若从命令行安装，需要
-
-1) 添加签名 https://www.google.com/linuxrepositories/
-2) 添加源
-3) `sudo apt update`
-4) `sudo apt install google-chrome-stable`
-
-也可从[官网](https://www.google.com/intl/zh-HK/chrome/)下载后使用`dpkg`直接安装 [google-chrome-stable](https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb)
-
-之后，不要忘记[ZeroOmega](https://chromewebstore.google.com/detail/proxy-switchyomega-3-zero/pfnededegaaopdmhkdmcofjmoldfiped)
+之后，不要忘记 [ZeroOmega](https://chromewebstore.google.com/detail/proxy-switchyomega-3-zero/pfnededegaaopdmhkdmcofjmoldfiped)
 
 ## 多媒体
 
@@ -136,7 +135,7 @@ sudo apt-get install -y ffmpeg vlc
 
 ### vscode
 
-软件管理器
+https://code.visualstudio.com/docs/setup/linux
 
 ### java sdk
 
@@ -154,7 +153,9 @@ EOF
 
 ### nodejs
 
-[安装nvm](https://github.com/nvm-sh/nvm#install--update-script)后，新开terminal再安装nodejs
+安装nvm https://github.com/nvm-sh/nvm#install--update-script
+
+之后，新开terminal安装nodejs
 
 ```bash
 nvm install --lts
