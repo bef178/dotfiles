@@ -141,6 +141,19 @@ sudo apt-get install -y ffmpeg vlc
 
 https://code.visualstudio.com/docs/setup/linux
 
+设置 Keyboard Shortcuts
+
+| Function | Key |
+| :- | :- |
+| Copy | Win+C |
+| Paste | Win+V |
+| Delete All Left | Ctrl+U |
+| Delete Line | Ctrl+D |
+| Toggle Line Comment | Ctrl+/ |
+| Trigger Suggest | Ctrl+P |
+| renameFile | F2 |
+| Remove Line Comment | (clear) |
+
 ### java sdk
 
 ```bash
