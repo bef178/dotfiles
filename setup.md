@@ -16,11 +16,15 @@ rmdir --ignore-fail-on-non-empty $HOME/{Documents,Movie,Music,Pictures,Public,Vi
 mkdir -p $HOME/bin
 
 cat >> $HOME/.bashrc << EOF
-. $TOP/setup.d/bash/alias.sh
-. $TOP/setup.d/bash/ps1.sh
+
+. $TOP/setup.d/alias.sh
+. $TOP/setup.d/ps1.sh
+
+export PATH=$PATH:$HOME/bin
 EOF
 
 cat >> $HOME/.inputrc << EOF
+
 # do not bell on tab-completion
 set bell-style none
 EOF
